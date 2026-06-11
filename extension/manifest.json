@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "简历自动填写助手",
+  "short_name": "ResumeAutoFiller",
+  "version": "1.0.0",
+  "description": "通过 Qwen Agent 智能分析页面表单并自动填写简历信息。支持任意招聘网站。",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "打开简历自动填写助手",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/dom_extractor.js", "lib/fill_executor.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sidepanel.html", "sidepanel.js", "sidepanel.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

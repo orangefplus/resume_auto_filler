@@ -1,0 +1,16 @@
+# DashScope (阿里云通义千问) 配置
+# 在 https://dashscope.console.aliyun.com/apiKey 申请
+dashscope_api_key: sk-XXXXX_YOUR_KEY_XXXXX
+
+# 兼容模式 base_url
+base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+
+# 文本模型（字段匹配 / 文本解析）
+text_model: qwen-plus
+
+# 视觉模型（可选，备用）
+vision_model: qwen-vl-plus
+
+# 后端服务监听地址
+host: 127.0.0.1
+port: 8765

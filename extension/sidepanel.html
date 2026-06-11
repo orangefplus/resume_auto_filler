@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>简历自动填写助手</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="hdr">
+    <h1>📝 简历自动填写助手</h1>
+    <div class="row">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">未连接</span>
+      <button id="settingsBtn" class="icon-btn" title="设置">⚙️</button>
+    </div>
+    <div class="url-line" id="pageUrl">-</div>
+  </header>
+
+  <section class="settings" id="settingsPanel" hidden>
+    <label>后端地址</label>
+    <input id="backendInput" type="text" placeholder="http://127.0.0.1:8765" />
+    <div class="row">
+      <button id="saveBackend" class="btn small">保存</button>
+      <button id="cancelSettings" class="btn small ghost">取消</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">
+      <span>① 简历内容</span>
+      <button id="loadTemplate" class="link-btn">加载模板</button>
+    </div>
+    <textarea id="mdInput" placeholder="把你的简历信息按 Markdown 格式粘贴到这里…
+
+## 基本信息
+- 姓名：张三
+- 手机：13800000000
+- 邮箱：zhangsan@example.com
+- 性别：男
+- 出生：1999-01
+
+## 教育经历
+### 北京大学 - 计算机科学与技术 - 本科
+- 时间：2020-09 至 2024-06
+- 主修课程：数据结构、操作系统…
+
+## 实习经历
+### 阿里巴巴 - 算法实习生
+- 时间：2023-07 至 2023-09
+- 描述：负责 XX 模型的训练与部署…
+
+## 专业技能
+- Python、PyTorch、SQL
+
+## 自我评价
+热爱技术，喜欢折腾…"></textarea>
+  </section>
+
+  <section class="card">
+    <div class="card-title"><span>② 上传文件</span></div>
+    <input id="fileInput" type="file" multiple
+           accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" />
+    <div id="fileList" class="file-list"></div>
+    <div class="hint">建议：简历 PDF + 个人照片 JPG</div>
+  </section>
+
+  <section class="card">
+    <button id="fillBtn" class="btn primary">🚀 智能填写</button>
+    <button id="extractBtn" class="btn ghost small">🔍 仅提取字段</button>
+  </section>
+
+  <section class="card">
+    <div class="card-title"><span>📋 执行日志</span></div>
+    <div id="logBox" class="log-box">
+      <div class="log-empty">暂无日志。点击"智能填写"开始。</div>
+    </div>
+  </section>
+
+  <section class="card profile-card" id="profileCard" hidden>
+    <div class="card-title"><span>👤 解析结果</span></div>
+    <pre id="profileSummary" class="profile-summary"></pre>
+  </section>
+
+  <footer class="ftr">
+    <small>本地运行 · 简历数据不上传云端</small>
+  </footer>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

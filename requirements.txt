@@ -1,0 +1,11 @@
+fastapi>=0.115
+uvicorn>=0.30
+langchain>=1.0
+langgraph>=1.0
+langchain-core>=1.0
+dashscope>=1.25
+PyYAML>=6.0
+pydantic>=2.0
+httpx>=0.28
+python-multipart>=0.0.12
+pytest>=8.0

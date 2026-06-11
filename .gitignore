@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Config & secrets
+config.yml
+
+# Runtime
+user_data/*.pdf
+user_data/*.doc
+user_data/*.docx
+user_data/*.jpg
+user_data/*.png
+user_data/*.jpeg
+user_data/*.zip
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
