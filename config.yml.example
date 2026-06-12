@@ -1,15 +1,35 @@
-# DashScope (阿里云通义千问) 配置
-# 在 https://dashscope.console.aliyun.com/apiKey 申请
-dashscope_api_key: sk-XXXXX_YOUR_KEY_XXXXX
+# LLM 配置（OpenAI 兼容接口）
+# 本项目支持任意 OpenAI 兼容服务。下面给出 3 个常用选项，按需启用：
 
-# 兼容模式 base_url
-base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+# ============== 选项 1：讯飞星辰 MaaS（默认推荐） ==============
+# 文档：https://maas.xfyun.cn/
+# API Key 格式：id:secret（如 3c3e...:NjI3...）
+dashscope_api_key: <your_id:secret_here>
+base_url: https://maas-api.cn-huabei-1.xf-yun.com/v2
+text_model: xopqwen36v35b         # Qwen2.5-28B 对话
+# vision_model: xop3qwen8bembedding  # Qwen2.5-Embedding-8B
 
-# 文本模型（字段匹配 / 文本解析）
-text_model: qwen-plus
+# ============== 选项 2：DeepSeek ==============
+# 文档：https://platform.deepseek.com/
+# 申请：https://platform.deepseek.com/api_keys
+# dashscope_api_key: sk-<your_deepseek_key>
+# base_url: https://api.deepseek.com/v1
+# text_model: deepseek-chat
 
-# 视觉模型（可选，备用）
-vision_model: qwen-vl-plus
+# ============== 选项 3：智谱 GLM-4.5-flash ==============
+# 文档：https://open.bigmodel.cn/
+# 申请：https://open.bigmodel.cn/usercenter/apikeys
+# dashscope_api_key: <your_glm_key>
+# base_url: https://open.bigmodel.cn/api/paas/v4
+# text_model: glm-4.5-flash
+
+# ============== 选项 4：阿里 DashScope ==============
+# 文档：https://help.aliyun.com/zh/model-studio/
+# 申请：https://dashscope.console.aliyun.com/apiKey
+# ⚠️ 需要账户有余额（欠费会返回 Arrearage 错误）
+# dashscope_api_key: sk-<your_qwen_key>
+# base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+# text_model: qwen-plus
 
 # 后端服务监听地址
 host: 127.0.0.1
