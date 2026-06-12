@@ -38,6 +38,7 @@ class AgentState(TypedDict, total=False):
     fields: List[PageField]
     user_markdown: str
     file_metas: List[Dict[str, Any]]     # 序列化为 dict
+    _llm: Optional[LLMClient]            # 内部使用的 LLM 客户端
     # 中间结果
     profile: Optional[Dict[str, Any]]
     fields_text: str
@@ -140,7 +141,7 @@ class ResumeFillAgent:
             "fields": [f.model_dump() for f in fields],
             "user_markdown": user_markdown,
             "file_metas": [f.model_dump() for f in (files or [])],
-            "_llm": self.llm,  # type: ignore[typeddict-item]
+            "_llm": self.llm,
         }
         result = self.graph.invoke(initial)
         # 把内部状态整理成对外结果
